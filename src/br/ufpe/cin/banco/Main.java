@@ -1,4 +1,17 @@
 package br.ufpe.cin.banco;
+import br.ufpe.cin.banco.clientes.Cliente;
+import br.ufpe.cin.banco.clientes.TipoCliente;
+import br.ufpe.cin.banco.contas.Conta;
+import br.ufpe.cin.banco.contas.ContaAbstrata;
+import br.ufpe.cin.banco.contas.ContaBonificada;
+import br.ufpe.cin.banco.contas.Poupanca;
+import br.ufpe.cin.banco.exception.ClienteExistenteException;
+import br.ufpe.cin.banco.exception.ClienteInexistenteException;
+import br.ufpe.cin.banco.exception.ClienteInvalidoException;
+import br.ufpe.cin.banco.exception.ContaExistenteException;
+import br.ufpe.cin.banco.exception.ContaInexistenteException;
+import br.ufpe.cin.banco.exception.SaldoInsuficienteException;
+import br.ufpe.cin.banco.fachada.Fachada;
 
 public class Main {
 
