@@ -1,3 +1,4 @@
+package br.ufpe.cin.banco.exception;
 
 public class SaldoInsuficienteException extends BancoException {
 	public SaldoInsuficienteException() {
