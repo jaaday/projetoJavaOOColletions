@@ -1,4 +1,6 @@
 package br.ufpe.cin.banco.contas;
+import java.util.Map;
+
 import br.ufpe.cin.banco.exception.ContaInexistenteException;
 
 public class RepositorioContasArray implements IRepositorioContas {
@@ -88,5 +90,9 @@ public class RepositorioContasArray implements IRepositorioContas {
 		} else {
 			throw new ContaInexistenteException();
 		}
+	}
+	@Override
+	public Map<String, ContaAbstrata> listar() {
+		return null;
 	}
 }

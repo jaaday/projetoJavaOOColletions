@@ -1,16 +1,20 @@
 package br.ufpe.cin.banco.contas;
+import java.util.Map;
+
 import br.ufpe.cin.banco.exception.ContaInexistenteException;
 
 public interface IRepositorioContas {
 
-	void inserir(ContaAbstrata c);
+	public void inserir(ContaAbstrata c);
 
-	boolean existe(String num);
+	public boolean existe(String num);
 
-	void atualizar(ContaAbstrata c) throws ContaInexistenteException;
+	public void atualizar(ContaAbstrata c) throws ContaInexistenteException;
 
-	ContaAbstrata procurar(String num) throws ContaInexistenteException;
+	public ContaAbstrata procurar(String num) throws ContaInexistenteException;
 
-	void remover(String num) throws ContaInexistenteException;
+	public void remover(String num) throws ContaInexistenteException;
+	
+	public Map<String, ContaAbstrata> listar();
 
 }

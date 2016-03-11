@@ -1,5 +1,7 @@
 package br.ufpe.cin.banco.fachada;
 
+import java.util.List;
+
 import br.ufpe.cin.banco.clientes.Cliente;
 import br.ufpe.cin.banco.clientes.IRepositorioClientes;
 import br.ufpe.cin.banco.exception.ClienteExistenteException;
@@ -30,5 +32,9 @@ public class CadastroClientes {
 
 	public Cliente procurar(String cpf) throws ClienteInexistenteException {
 		return clientes.procurar(cpf);
+	}
+	
+	public List<Cliente> listar(){
+		return clientes.listar();
 	}
 }

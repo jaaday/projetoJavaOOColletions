@@ -1,4 +1,6 @@
 package br.ufpe.cin.banco.fachada;
+import java.util.List;
+
 import br.ufpe.cin.banco.clientes.Cliente;
 import br.ufpe.cin.banco.clientes.IRepositorioClientes;
 import br.ufpe.cin.banco.clientes.RepositorioClientesArray;
@@ -88,5 +90,9 @@ public class Fachada {
 
 	public void transferir(String origem, String destino, double val) throws ContaInexistenteException, SaldoInsuficienteException {
 		contas.transferir(origem, destino, val);
+	}
+	
+	public List<Cliente> listar(){
+		return clientes.listar();
 	}
 }

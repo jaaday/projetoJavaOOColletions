@@ -1,5 +1,5 @@
 package br.ufpe.cin.banco.clientes;
-public class Cliente {
+public class Cliente implements Comparable<Cliente>{
 
 	private String cpf;
 
@@ -35,5 +35,10 @@ public class Cliente {
 
 	public void setTipo(TipoCliente newtipo) {
 		this.tipo = newtipo;
+	}
+
+	@Override
+	public int compareTo(Cliente arg0) {
+		return nome.compareTo(arg0.nome);
 	}
 }

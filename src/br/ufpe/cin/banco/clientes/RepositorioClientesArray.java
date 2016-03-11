@@ -1,8 +1,14 @@
 package br.ufpe.cin.banco.clientes;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import br.ufpe.cin.banco.exception.ClienteInexistenteException;
 
 public class RepositorioClientesArray implements IRepositorioClientes {
 	private Cliente[] clientes;
+	private List<Cliente> lista;
 	private int indice;
 
 	private final static int tamCache = 100;
@@ -12,7 +18,9 @@ public class RepositorioClientesArray implements IRepositorioClientes {
 		clientes = new Cliente[tamCache];
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see RepositorioClientes#atualizar(Cliente)
 	 */
 	@Override
@@ -25,7 +33,9 @@ public class RepositorioClientesArray implements IRepositorioClientes {
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see RepositorioClientes#existe(java.lang.String)
 	 */
 	@Override
@@ -40,7 +50,9 @@ public class RepositorioClientesArray implements IRepositorioClientes {
 		return resp;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see RepositorioClientes#inserir(Cliente)
 	 */
 	@Override
@@ -49,7 +61,9 @@ public class RepositorioClientesArray implements IRepositorioClientes {
 		indice = indice + 1;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see RepositorioClientes#procurar(java.lang.String)
 	 */
 	@Override
@@ -80,7 +94,9 @@ public class RepositorioClientesArray implements IRepositorioClientes {
 		return ind;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see RepositorioClientes#remover(java.lang.String)
 	 */
 	@Override
@@ -93,5 +109,21 @@ public class RepositorioClientesArray implements IRepositorioClientes {
 		} else {
 			throw new ClienteInexistenteException();
 		}
+	}
+
+	@Override
+	public List<Cliente> listar() {
+		lista = new ArrayList<Cliente>();
+
+		for (int i = 0; i < indice; i++) {
+			lista.add(clientes[i]);
+		}
+		
+		Collections.sort(lista);
+
+		return lista;
+		/*Eu possuo uma coleção para ser retornada, mas meus elementos estão contidos
+		em um vetor de clietes. Por isso antes de retornar a lista devo preenchê-la 
+		com todos os clientes contidas no vetor.*/
 	}
 }
