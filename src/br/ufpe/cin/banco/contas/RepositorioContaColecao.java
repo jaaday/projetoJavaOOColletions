@@ -11,7 +11,7 @@ public class RepositorioContaColecao implements IRepositorioContas {
 
 	@Override
 	public void inserir(ContaAbstrata c) {
-		if(!mp.containsKey(c.getNumero())){
+		if(!existe(c.getNumero())){
 			mp.put(c.getNumero(), c);
 		}
 	}
@@ -25,7 +25,7 @@ public class RepositorioContaColecao implements IRepositorioContas {
 
 	@Override
 	public void atualizar(ContaAbstrata c) throws ContaInexistenteException {
-		if(!mp.containsKey(c.getNumero())){
+		if(!existe(c.getNumero())){
 			mp.replace(c.getNumero(), c);
 		} else {
 			throw new ContaInexistenteException();
@@ -34,7 +34,7 @@ public class RepositorioContaColecao implements IRepositorioContas {
 
 	@Override
 	public ContaAbstrata procurar(String num) throws ContaInexistenteException {
-		if(mp.containsKey(num)){
+		if(existe(num)){
 			return mp.get(num);
 		} else {
 			throw new ContaInexistenteException();
@@ -44,7 +44,7 @@ public class RepositorioContaColecao implements IRepositorioContas {
 
 	@Override
 	public void remover(String num) throws ContaInexistenteException {
-		if(!mp.containsKey(num)){
+		if(!existe(num)){
 			mp.remove(num);
 		} else {
 			throw new ContaInexistenteException();
