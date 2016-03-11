@@ -68,7 +68,7 @@ public class RepositorioClientesArray implements IRepositorioClientes {
 	 */
 	@Override
 	public Cliente procurar(String cpf) throws ClienteInexistenteException {
-		Cliente c = null;
+		Cliente c = new Cliente(cpf, null, null);
 		if (existe(cpf)) {
 			int i = this.procurarIndice(cpf);
 			c = clientes[i];

@@ -39,6 +39,6 @@ public class Cliente implements Comparable<Cliente>{
 
 	@Override
 	public int compareTo(Cliente arg0) {
-		return nome.compareTo(arg0.nome);
+		return cpf.compareTo(arg0.cpf);
 	}
 }
